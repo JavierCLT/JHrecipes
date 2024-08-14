@@ -1,0 +1,24 @@
+name: Build & Deploy
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{secrets.LS_HOST}}
+          username: ${{secrets.LS_USER}}
+          password: ${{secrets.LS_PASSWORD}}
+          script: |
+            cd /var/www/laravel
+            git add .
+            git commit -m "Trash commit"
+            git pull origin main
+            composer install --no-dev
+            php artisan optimize:clear
+            php artisan migrate --force
+            echo 'Deployment successful'
