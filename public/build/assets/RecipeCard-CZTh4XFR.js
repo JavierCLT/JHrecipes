@@ -1,0 +1,1 @@
+import{j as t}from"./app-CPJqprFO.js";import{C as r,d as s}from"./button-DVjZdHID.js";function d({recipe:e}){return t.jsx(r,{className:"cursor-pointer hover:bg-[#505f6f] hover:text-[#f2dddb] h-full transition hover:-translate-y-1",children:t.jsx(s,{className:"p-2.5 md:p-4",children:t.jsx("p",{className:"font-semibold text-md md:text-xl",children:e.title})})})}export{d as R};
