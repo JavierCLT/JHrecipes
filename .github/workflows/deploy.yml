@@ -15,7 +15,7 @@ jobs:
         with:
           host: ${{ secrets.LS_HOST }}
           username: ${{ secrets.LS_USER }}
-          key: ${{ secrets.LS_PRIVATE_KEY }}
+          key: ${{ secrets.LS_PASSWORD }}
           script: |
             cd /var/www/laravel
             git pull origin main
@@ -46,4 +46,4 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.LS_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy beast-boxes to digitalocean
-        run: rsync -azv  ./public/* ${{ secrets.LS_USER }}@${{ secrets.LS_HOST }}:/var/www/laravel/public/
+        run: rsync -azv  ./public/* ubuntu@${{ secrets.LS_HOST }}:/var/www/laravel/public/
