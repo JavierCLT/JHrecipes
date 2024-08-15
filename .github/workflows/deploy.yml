@@ -20,7 +20,7 @@ jobs:
             cd /var/www/laravel
             git pull origin main
             composer install --no-dev
-            php artisan migrate
+            php artisan migrate --force
 
       - name: Checkout to current code
         uses: actions/checkout@v4
