@@ -1,116 +1,116 @@
 {
-  "_AuthenticatedLayout-BsJuO-9H.js": {
-    "file": "assets/AuthenticatedLayout-BsJuO-9H.js",
+  "_AuthenticatedLayout-D5_upOov.js": {
+    "file": "assets/AuthenticatedLayout-D5_upOov.js",
     "name": "AuthenticatedLayout",
     "imports": [
       "resources/js/app.tsx",
-      "_button-DVjZdHID.js"
+      "_button-B6bDWfDv.js"
     ]
   },
-  "_GoogleIcon-DUt06R3U.js": {
-    "file": "assets/GoogleIcon-DUt06R3U.js",
+  "_GoogleIcon-DNonq6B5.js": {
+    "file": "assets/GoogleIcon-DNonq6B5.js",
     "name": "GoogleIcon",
     "imports": [
       "resources/js/app.tsx",
-      "_button-DVjZdHID.js"
+      "_button-B6bDWfDv.js"
     ]
   },
-  "_RecipeCard-CZTh4XFR.js": {
-    "file": "assets/RecipeCard-CZTh4XFR.js",
+  "_RecipeCard-COkP9jDz.js": {
+    "file": "assets/RecipeCard-COkP9jDz.js",
     "name": "RecipeCard",
     "imports": [
       "resources/js/app.tsx",
-      "_button-DVjZdHID.js"
+      "_button-B6bDWfDv.js"
     ]
   },
-  "_button-DVjZdHID.js": {
-    "file": "assets/button-DVjZdHID.js",
+  "_button-B6bDWfDv.js": {
+    "file": "assets/button-B6bDWfDv.js",
     "name": "button",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
   "resources/js/Pages/Auth/Login.tsx": {
-    "file": "assets/Login-WU94wtwt.js",
+    "file": "assets/Login-deFc_IE6.js",
     "name": "Login",
     "src": "resources/js/Pages/Auth/Login.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_GoogleIcon-DUt06R3U.js",
-      "_button-DVjZdHID.js"
+      "_GoogleIcon-DNonq6B5.js",
+      "_button-B6bDWfDv.js"
     ]
   },
   "resources/js/Pages/Auth/Register.tsx": {
-    "file": "assets/Register-Da8WrokL.js",
+    "file": "assets/Register-CIoEMU5Q.js",
     "name": "Register",
     "src": "resources/js/Pages/Auth/Register.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_GoogleIcon-DUt06R3U.js",
-      "_button-DVjZdHID.js"
+      "_GoogleIcon-DNonq6B5.js",
+      "_button-B6bDWfDv.js"
     ]
   },
   "resources/js/Pages/FavoriteRecipes/Index.tsx": {
-    "file": "assets/Index-MVFHKP0G.js",
+    "file": "assets/Index-DBYHUohB.js",
     "name": "Index",
     "src": "resources/js/Pages/FavoriteRecipes/Index.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_AuthenticatedLayout-BsJuO-9H.js",
-      "_RecipeCard-CZTh4XFR.js",
-      "_button-DVjZdHID.js"
+      "_AuthenticatedLayout-D5_upOov.js",
+      "_RecipeCard-COkP9jDz.js",
+      "_button-B6bDWfDv.js"
     ]
   },
   "resources/js/Pages/Recipes/Edit.tsx": {
-    "file": "assets/Edit-DXQQxRZi.js",
+    "file": "assets/Edit-CKm6XMjs.js",
     "name": "Edit",
     "src": "resources/js/Pages/Recipes/Edit.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_AuthenticatedLayout-BsJuO-9H.js",
-      "_button-DVjZdHID.js"
+      "_AuthenticatedLayout-D5_upOov.js",
+      "_button-B6bDWfDv.js"
     ]
   },
   "resources/js/Pages/Recipes/Index.tsx": {
-    "file": "assets/Index-A1FEPvtU.js",
+    "file": "assets/Index-DoFIUZqI.js",
     "name": "Index",
     "src": "resources/js/Pages/Recipes/Index.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_AuthenticatedLayout-BsJuO-9H.js",
-      "_RecipeCard-CZTh4XFR.js",
-      "_button-DVjZdHID.js"
+      "_AuthenticatedLayout-D5_upOov.js",
+      "_RecipeCard-COkP9jDz.js",
+      "_button-B6bDWfDv.js"
     ]
   },
   "resources/js/Pages/Recipes/Show.tsx": {
-    "file": "assets/Show-bf4s159G.js",
+    "file": "assets/Show-DZ5NTEDP.js",
     "name": "Show",
     "src": "resources/js/Pages/Recipes/Show.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_AuthenticatedLayout-BsJuO-9H.js",
-      "_button-DVjZdHID.js"
+      "_AuthenticatedLayout-D5_upOov.js",
+      "_button-B6bDWfDv.js"
     ]
   },
   "resources/js/Pages/Tags/Index.tsx": {
-    "file": "assets/Index-b6oNY8Dl.js",
+    "file": "assets/Index-qL4ngD7M.js",
     "name": "Index",
     "src": "resources/js/Pages/Tags/Index.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_AuthenticatedLayout-BsJuO-9H.js",
-      "_button-DVjZdHID.js"
+      "_AuthenticatedLayout-D5_upOov.js",
+      "_button-B6bDWfDv.js"
     ]
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-CPJqprFO.js",
+    "file": "assets/app-D3CR9d7N.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -124,7 +124,7 @@
       "resources/js/Pages/Tags/Index.tsx"
     ],
     "css": [
-      "assets/app-WK_0YELc.css"
+      "assets/app-CrKtWyX-.css"
     ]
   }
 }
