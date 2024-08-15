@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Laravel\Socialite\Facades\Socialite;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,7 +30,7 @@ class SocialAuthController extends Controller
             ], [
                 'name' => $googleUser->name,
                 'email' => $googleUser->email,
-                'password' => bcrypt(str_random(8)),
+                'password' => bcrypt(Str::random(8)),
             ]);
 
             Auth::login($user);
