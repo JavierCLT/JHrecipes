@@ -3,23 +3,47 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production
     steps:
-      - name: Deploy to server
+      - name: Pull to server
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{secrets.LS_HOST}}
-          username: ${{secrets.LS_USER}}
-          password: ${{secrets.LS_PASSWORD}}
+          host: ${{ secrets.LS_HOST }}
+          username: ${{ secrets.LS_USER }}
+          key: ${{ secrets.LS_PRIVATE_KEY }}
           script: |
             cd /var/www/laravel
-            git add .
-            git commit -m "Trash commit"
             git pull origin main
             composer install --no-dev
-            php artisan optimize:clear
-            php artisan migrate --force
-            echo 'Deployment successful'
+            php artisan migrate
+
+      - name: Checkout to current code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.x'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Building public assets
+        run: npm run build
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.LS_PRIVATE_KEY }}
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H ${{ secrets.LS_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy beast-boxes to digitalocean
+        run: rsync -azv  ./public/* ${{ secrets.LS_USER }}@${{ secrets.LS_HOST }}:/var/www/laravel/public/
