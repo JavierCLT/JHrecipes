@@ -10,18 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Pull to server
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.LS_HOST }}
-          username: ${{ secrets.LS_USER }}
-          password: ${{ secrets.LS_PASSWORD }}
-          script: |
-            cd /var/www/laravel
-            git pull origin main
-            composer install --no-dev
-            php artisan migrate --force
-
       - name: Checkout to current code
         uses: actions/checkout@v4
 
@@ -56,3 +44,18 @@ jobs:
 
       - name: Deploy beast-boxes to digitalocean
         run: rsync -azv  ./public/* ubuntu@${{ secrets.LS_HOST }}:/var/www/laravel/public/
+
+      - name: Pull to server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.LS_HOST }}
+          username: ubuntu
+          key: ${{ secrets.LS_PRIVATE_KEY }}
+          script: |
+            cd /var/www/laravel
+            git add .
+            git commit -m "commits on server"
+            git pull origin main
+            composer install --no-dev
+            php artisan migrate --force
+            sudo chown -R deployer:deployer /var/www/laravel
