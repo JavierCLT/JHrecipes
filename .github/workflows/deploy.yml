@@ -15,7 +15,7 @@ jobs:
         with:
           host: ${{ secrets.LS_HOST }}
           username: ${{ secrets.LS_USER }}
-          key: ${{ secrets.LS_PASSWORD }}
+          password: ${{ secrets.LS_PASSWORD }}
           script: |
             cd /var/www/laravel
             git pull origin main
