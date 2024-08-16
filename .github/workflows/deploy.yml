@@ -43,13 +43,13 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.LS_HOST }} >> ~/.ssh/known_hosts
 
       - name: Upload build files
-        run: rsync -azv  ./public/* ${{ secrets.LS_USER }}@${{ secrets.LS_HOST }}:/var/www/app/public/
+        run: rsync -azv  ./public/* ubuntu@${{ secrets.LS_HOST }}:/var/www/app/public/
 
       - name: Pull code to server
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.LS_HOST }}
-          username: ${{ secrets.LS_USER }}
+          username: ubuntu
           key: ${{ secrets.LS_PRIVATE_KEY }}
           script: |
             cd /var/www/app
