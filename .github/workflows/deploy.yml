@@ -43,7 +43,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.LS_HOST }} >> ~/.ssh/known_hosts
 
       - name: Upload build files
-        run: rsync -azv  ./public/* ${{ secrets.LS_USER }}@${{ secrets.LS_HOST }}:/var/www/laravel/public/
+        run: rsync -azv  ./public/* ${{ secrets.LS_USER }}@${{ secrets.LS_HOST }}:/var/www/app/public/
 
       - name: Pull code to server
         uses: appleboy/ssh-action@v1.0.3
@@ -52,9 +52,8 @@ jobs:
           username: ${{ secrets.LS_USER }}
           key: ${{ secrets.LS_PRIVATE_KEY }}
           script: |
-            cd /var/www/laravel
-            git add .
-            git commit -m "commits on server"
+            cd /var/www/app
+            git stash
             git pull origin main
             composer install --no-dev
             php artisan migrate --force
