@@ -12,7 +12,11 @@ class Recipe extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'title', 'servings', 'origin', 'user_id'];
+    protected $fillable = ['id', 'title', 'servings', 'origin', 'user_id', 'is_perfected'];
+
+    protected $casts = [
+        'is_perfected' => 'bool'
+    ];
 
     public function ingredients(): HasMany
     {

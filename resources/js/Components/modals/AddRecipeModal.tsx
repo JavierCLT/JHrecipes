@@ -8,6 +8,7 @@ import {FormEventHandler, useEffect} from "react";
 import InputError from "@/Components/ui/input-error";
 import axios from "axios";
 import {emitter} from "@/lib/emitter";
+import {Checkbox} from "@/Components/ui/checkbox";
 
 export default function AddRecipeModal({show, onClose}: { show: boolean, onClose: () => void }) {
     const {data, setData, post, processing, errors, reset} = useForm({
@@ -17,6 +18,7 @@ export default function AddRecipeModal({show, onClose}: { show: boolean, onClose
         tags: "",
         servings: "",
         origin: "",
+        is_perfected: false
     })
 
     const submit: FormEventHandler = (e) => {
@@ -109,6 +111,18 @@ export default function AddRecipeModal({show, onClose}: { show: boolean, onClose
                                 required
                             />
                             <InputError message={errors.origin}/>
+                        </div>
+                        <div className="flex items-center space-x-2 pt-1">
+                            <Checkbox
+                                id="is_perfected"
+                                onCheckedChange={state => setData("is_perfected", state == true)}
+                            />
+                            <label
+                                htmlFor="is_perfected"
+                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
+                                Perfected
+                            </label>
                         </div>
                     </div>
                     <DialogFooter className="flex gap-2 md:gap-0">

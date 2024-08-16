@@ -61,6 +61,7 @@ class RecipeController extends Controller
                 'title' => $request->title,
                 'servings' => $request->servings,
                 'origin' => $request->origin,
+                'is_perfected' => $request->is_perfected,
             ]);
 
             $tagWords = explode(',', $request->tags);
@@ -135,6 +136,7 @@ class RecipeController extends Controller
                 'title' => $request->title,
                 'servings' => $request->servings,
                 'origin' => $request->origin,
+                'is_perfected' => $request->is_perfected,
             ]);
 
             $recipe->tags()->delete();

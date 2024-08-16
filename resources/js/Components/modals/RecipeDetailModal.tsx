@@ -14,7 +14,7 @@ import {Textarea} from "@/Components/ui/textarea";
 import {useForm} from "@inertiajs/react";
 import React, {FormEventHandler, useState} from "react";
 import InputError from "@/Components/ui/input-error";
-import {HeartIcon, ShareIcon, SquarePen, TrashIcon} from "lucide-react";
+import {CheckIcon, HeartIcon, ShareIcon, SquarePen, TrashIcon} from "lucide-react";
 import {cn} from "@/lib/utils";
 import {
     AlertDialog,
@@ -31,6 +31,8 @@ import {useToast} from "@/Components/ui/use-toast";
 import axios from "axios";
 import {useRecipeDetailStore} from "@/lib/store/use-recipe-detail-store";
 import {emitter} from "@/lib/emitter";
+import {Tooltip, TooltipContent, TooltipTrigger} from "@/Components/ui/tooltip";
+import {Checkbox} from "@/Components/ui/checkbox";
 
 function UpdateForm() {
     const {setEditMode, closeDetailModal, recipe, loadRecipe} = useRecipeDetailStore();
@@ -53,6 +55,7 @@ function UpdateForm() {
         tags: tags,
         servings: recipe.servings,
         origin: recipe.origin,
+        is_perfected: recipe.is_perfected
     })
 
     const submit: FormEventHandler = (e) => {
@@ -158,6 +161,19 @@ function UpdateForm() {
                         required
                     />
                     <InputError message={errors.origin}/>
+                </div>
+                <div className="flex items-center space-x-2 pt-1">
+                    <Checkbox
+                        id="is_perfected"
+                        checked={data.is_perfected}
+                        onCheckedChange={state => setData("is_perfected", state == true)}
+                    />
+                    <label
+                        htmlFor="is_perfected"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                        Perfected
+                    </label>
                 </div>
             </div>
             <DialogFooter className="flex gap-2 md:gap-0">
@@ -284,14 +300,29 @@ function DetailCard() {
                 <Button variant="outline" onClick={() => setEditMode(true)}>
                     <SquarePen className="mr-2 size-4"/> Edit Recipe
                 </Button>
-
-                <Button size="icon" variant="outline"
-                        onClick={isFavorite ? handleDeleteFavorite : handleCreateFavorite}>
-                    <HeartIcon className={cn("size-5", {
-                        "fill-red-600 stroke-0": isFavorite
-                    })}/>
-                </Button>
-
+                {recipe.is_perfected && <Tooltip>
+                    <TooltipTrigger asChild>
+                        <div className="size-10 flex justify-center items-center border rounded">
+                            <CheckIcon className="size-5 text-green-600"/>
+                        </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                        <p>Perfected</p>
+                    </TooltipContent>
+                </Tooltip>}
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <Button size="icon" variant="outline"
+                                onClick={isFavorite ? handleDeleteFavorite : handleCreateFavorite}>
+                            <HeartIcon className={cn("size-5", {
+                                "fill-red-600 stroke-0": isFavorite
+                            })}/>
+                        </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                        <p>Favorite</p>
+                    </TooltipContent>
+                </Tooltip>
                 <AlertDialog>
                     <AlertDialogTrigger asChild>
                         <Button size="icon" variant="destructive">

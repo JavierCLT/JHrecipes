@@ -6,6 +6,7 @@ type User = {
     email_verified_at: string /* Date */;
     created_at: string /* Date */ | null;
     updated_at: string /* Date */ | null;
+    tags?: Tag[] | null;
     recipes?: Recipe[] | null;
     favorite_recipes?: Recipe[] | null;
 };

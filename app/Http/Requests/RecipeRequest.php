@@ -29,6 +29,7 @@ class RecipeRequest extends FormRequest
             'tags' => ['required'],
             'servings' => ['required'],
             'origin' => ['required'],
+            'is_perfected' => ['required', 'bool'],
         ];
     }
 }
