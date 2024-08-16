@@ -295,56 +295,63 @@ function DetailCard() {
                 </div>
             </div>
 
-            <div className="flex justify-between md:justify-end gap-2">
-                <Button variant="outline" className="outline-none" onClick={share} autoFocus={false}>
-                    <ShareIcon className="md:mr-2 size-4"/> <span className="hidden md:inline-block">Share</span>
-                </Button>
+            <div className="flex justify-between items-center flex-row-reverse gap-2">
+                <div>
+                    <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                            <Button size="icon" variant="destructive">
+                                <TrashIcon className="size-4"/>
+                            </Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                            <AlertDialogHeader>
+                                <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                                <AlertDialogDescription>
+                                    This action cannot be undone. This will permanently delete this recipe.
+                                </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                <AlertDialogAction onClick={deleteRecipe}>Continue</AlertDialogAction>
+                            </AlertDialogFooter>
+                        </AlertDialogContent>
+                    </AlertDialog>
+                </div>
 
-                <Button variant="outline" onClick={() => setEditMode(true)}>
-                    <SquarePen className="mr-2 size-4"/> Edit
-                </Button>
-                {recipe.is_perfected && <Tooltip>
-                    <TooltipTrigger asChild>
-                        <div className="size-10 flex justify-center items-center border rounded">
-                            <CheckIcon className="size-5 text-green-600"/>
-                        </div>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                        <p>Perfected</p>
-                    </TooltipContent>
-                </Tooltip>}
-                <Tooltip>
-                    <TooltipTrigger asChild>
-                        <Button size="icon" variant="outline"
-                                onClick={isFavorite ? handleDeleteFavorite : handleCreateFavorite}>
-                            <HeartIcon className={cn("size-5", {
-                                "fill-red-600 stroke-0": isFavorite
-                            })}/>
-                        </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                        <p>Favorite</p>
-                    </TooltipContent>
-                </Tooltip>
-                <AlertDialog>
-                    <AlertDialogTrigger asChild>
-                        <Button size="icon" variant="destructive">
-                            <TrashIcon className="size-4"/>
-                        </Button>
-                    </AlertDialogTrigger>
-                    <AlertDialogContent>
-                        <AlertDialogHeader>
-                            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                            <AlertDialogDescription>
-                                This action cannot be undone. This will permanently delete this recipe.
-                            </AlertDialogDescription>
-                        </AlertDialogHeader>
-                        <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction onClick={deleteRecipe}>Continue</AlertDialogAction>
-                        </AlertDialogFooter>
-                    </AlertDialogContent>
-                </AlertDialog>
+                <div className="flex justify-center items-center gap-2">
+                    <Button variant="outline" className="outline-none" onClick={share} autoFocus={false}>
+                        <ShareIcon className="md:mr-2 size-4"/> <span className="hidden md:inline-block">Share</span>
+                    </Button>
+
+                    <Button variant="outline" onClick={() => setEditMode(true)}>
+                        <SquarePen className="mr-2 size-4"/> Edit
+                    </Button>
+
+                    {recipe.is_perfected && <Tooltip>
+                        <TooltipTrigger asChild>
+                            <div className="size-10 flex justify-center items-center border rounded">
+                                <CheckIcon className="size-5 text-green-600"/>
+                            </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>Perfected</p>
+                        </TooltipContent>
+                    </Tooltip>}
+
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Button size="icon" variant="outline"
+                                    onClick={isFavorite ? handleDeleteFavorite : handleCreateFavorite}>
+                                <HeartIcon className={cn("size-5", {
+                                    "fill-red-600 stroke-0": isFavorite
+                                })}/>
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>Favorite</p>
+                        </TooltipContent>
+                    </Tooltip>
+                </div>
             </div>
         </>
     )
