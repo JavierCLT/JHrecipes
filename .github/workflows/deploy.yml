@@ -58,3 +58,4 @@ jobs:
             git pull origin main
             composer install --no-dev
             php artisan migrate --force
+            php optimize:clear
