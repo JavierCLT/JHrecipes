@@ -301,7 +301,7 @@ function DetailCard() {
                 </Button>
 
                 <Button variant="outline" onClick={() => setEditMode(true)}>
-                    <SquarePen className="mr-2 size-4"/> Edit Recipe
+                    <SquarePen className="mr-2 size-4"/> Edit
                 </Button>
                 {recipe.is_perfected && <Tooltip>
                     <TooltipTrigger asChild>
