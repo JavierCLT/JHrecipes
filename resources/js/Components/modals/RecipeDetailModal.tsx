@@ -101,7 +101,7 @@ function UpdateForm() {
                 </div>
                 <div className="grid gap-2">
                     <Label htmlFor="ingredients">
-                        Ingredients (one per line, e.g., 1 tsp of salt):
+                        Ingredients (one per line, e.g., 1 tsp. of salt):
                     </Label>
                     <Textarea
                         id="ingredients"
@@ -125,7 +125,7 @@ function UpdateForm() {
                 </div>
                 <div className="grid gap-2">
                     <Label htmlFor="tags">
-                        Tags (comma separated, e.g., breakfast, quick):
+                        Tags (comma separated, e.g., breakfast):
                     </Label>
                     <Input
                         id="tags"
