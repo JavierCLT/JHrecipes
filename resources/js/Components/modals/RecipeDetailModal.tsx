@@ -162,18 +162,21 @@ function UpdateForm() {
                     />
                     <InputError message={errors.origin}/>
                 </div>
-                <div className="flex items-center space-x-2 pt-1">
-                    <Checkbox
-                        id="is_perfected"
-                        checked={data.is_perfected}
-                        onCheckedChange={state => setData("is_perfected", state == true)}
-                    />
-                    <label
-                        htmlFor="is_perfected"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                        Perfected
-                    </label>
+                <div className="grid gap-2">
+                    <div className="flex items-center space-x-2">
+                        <Checkbox
+                            id="is_perfected"
+                            checked={data.is_perfected}
+                            onCheckedChange={state => setData("is_perfected", state == true)}
+                        />
+                        <label
+                            htmlFor="is_perfected"
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                            Perfected
+                        </label>
+                    </div>
+                    <InputError message={errors.is_perfected}/>
                 </div>
             </div>
             <DialogFooter className="flex gap-2 md:gap-0">
