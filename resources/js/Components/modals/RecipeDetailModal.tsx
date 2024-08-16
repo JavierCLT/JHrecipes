@@ -252,14 +252,14 @@ function DetailCard() {
                 <div className="grid gap-3">
                     <div className="grid gap-1 shadow p-3 border rounded-xl">
                         <h4 className="font-semibold">Ingredients</h4>
-                        <ul className="space-y-1">
+                        <ul className="space-y-1 list-inside list-disc">
                             {recipe.ingredients?.map((item, index) => <li key={index}>{item.description}</li>)}
                         </ul>
                     </div>
 
                     <div className="grid gap-1 shadow p-3 border rounded-xl">
                         <h4 className="font-semibold">Instructions</h4>
-                        <ol className="space-y-1">
+                        <ol className="space-y-1.5">
                             {recipe.instructions?.map((item, index) => <li key={index}>{item.description}</li>)}
                         </ol>
                     </div>

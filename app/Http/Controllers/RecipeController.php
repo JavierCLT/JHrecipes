@@ -26,10 +26,10 @@ class RecipeController extends Controller
                         ->orWhereLike('title', '%'.$searchQuery.'%')
                         ->orWhereLike('origin', '%'.$searchQuery.'%')
                         ->orWhereHas('tags', function (Builder $tagsQuery) use ($searchQuery) {
-                            $tagsQuery->whereLike('name', $searchQuery);
+                            $tagsQuery->whereLike('name', '%'.$searchQuery.'%');
                         })
                         ->orWhereHas('ingredients', function (Builder $tagsQuery) use ($searchQuery) {
-                            $tagsQuery->whereLike('description', $searchQuery);
+                            $tagsQuery->whereLike('description', '%'.$searchQuery.'%');
                         });
                 });
             })
