@@ -57,7 +57,7 @@ export default function Login({errors: responseErrors, status, canResetPassword}
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder="javier@example.com"
+                                    placeholder="jane@example.com"
                                     onChange={e => setData('email', e.target.value)}
                                     required
                                 />

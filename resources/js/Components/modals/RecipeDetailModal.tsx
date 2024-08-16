@@ -322,13 +322,13 @@ export default function RecipeDetailModal() {
     return recipe && (
         <Dialog open={true} onOpenChange={() => closeDetailModal()}>
             <DialogContent
+                hideClose
                 onOpenAutoFocus={(e) => e.preventDefault()}
                 className="max-h-[90%] overflow-y-auto rounded-lg max-w-[85%] p-3 lg:p-6 xl:max-w-7xl overflow-x-hidden"
             >
                 {!editMode && <DetailCard/>}
                 {editMode && <UpdateForm/>}
             </DialogContent>
-            <DialogClose asChild>a</DialogClose>
         </Dialog>
     )
 }

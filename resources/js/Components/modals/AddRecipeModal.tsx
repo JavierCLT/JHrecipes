@@ -32,7 +32,7 @@ export default function AddRecipeModal({show, onClose}: { show: boolean, onClose
 
     return (
         <Dialog open={show} onOpenChange={onClose}>
-            <DialogContent>
+            <DialogContent className="max-h-[90%] overflow-y-auto rounded-lg max-w-[85%] p-3 lg:p-6 xl:max-w-7xl overflow-x-hidden">
                 <form onSubmit={submit}>
                     <DialogHeader>
                         <DialogTitle>Add New Recipe</DialogTitle>

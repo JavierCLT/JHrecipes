@@ -24,6 +24,7 @@ class RecipeController extends Controller
                 $query->where(function (Builder $searchQueryBuilder) use ($searchQuery) {
                     $searchQueryBuilder
                         ->orWhereLike('title', '%'.$searchQuery.'%')
+                        ->orWhereLike('origin', '%'.$searchQuery.'%')
                         ->orWhereHas('tags', function (Builder $tagsQuery) use ($searchQuery) {
                             $tagsQuery->whereLike('name', $searchQuery);
                         })
@@ -136,8 +137,9 @@ class RecipeController extends Controller
                 'origin' => $request->origin,
             ]);
 
+            $recipe->tags()->delete();
             $tags = collect(explode(',', $request->tags))
-                ->map(fn ($tagWord) => Tag::firstOrCreate(['name' => trim($tagWord)]))
+                ->map(fn ($tagWord) => request()->user()->tags()->firstOrCreate(['name' => trim($tagWord)]))
                 ->map(fn ($tag) => $tag->id)
                 ->toArray();
 

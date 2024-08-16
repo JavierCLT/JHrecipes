@@ -46,7 +46,7 @@ export default function Register({status}: { status?: string, canResetPassword: 
                                 <Input
                                     id="name"
                                     type="text"
-                                    placeholder="Javier Sanz"
+                                    placeholder="Jane Doe"
                                     onChange={e => setData('name', e.target.value)}
                                     required
                                 />
@@ -57,7 +57,7 @@ export default function Register({status}: { status?: string, canResetPassword: 
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder="javier@example.com"
+                                    placeholder="jane@example.com"
                                     onChange={e => setData('email', e.target.value)}
                                     required
                                 />
@@ -90,7 +90,7 @@ export default function Register({status}: { status?: string, canResetPassword: 
                             </Button>
                             <Button variant="outline" className="w-full" asChild disabled={processing}>
                                 <Link href={route('auth.google.redirect')}>
-                                    <GoogleIcon className="size-4 mr-2" /> Login with Google
+                                    <GoogleIcon className="size-4 mr-2" /> Sign up with Google
                                 </Link>
                             </Button>
                         </div>
