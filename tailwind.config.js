@@ -1,30 +1,84 @@
-import React from 'react';
-import { Link } from '@inertiajs/react';
+import defaultTheme from "tailwindcss/defaultTheme"
 
-const Footer: React.FC = () => {
-    return (
-        <footer className="bg-gray-200 py-4 mt-8">
-            <div className="container mx-auto px-4">
-                <div className="flex justify-between items-center font-sans text-gray-700">
-                    <p className="text-sm">&copy; {new Date().getFullYear()} JHrecipes. All rights reserved.</p>
-                    <div className="space-x-4">
-                        <Link 
-                            href="/legal" 
-                            className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
-                        >
-                            Legal
-                        </Link>
-                        <Link 
-                            href="/contact" 
-                            className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
-                        >
-                            Contact
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    );
-};
+/** @type {import('tailwindcss').Config} */
+export default {
+    darkMode: "class",
+    content: [
+        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+        "./storage/framework/views/*.php",
+        "./resources/views/**/*.blade.php",
+        "./resources/js/**/*.tsx",
+    ],
 
-export default Footer;
+    theme: {
+        container: {
+            center: true,
+            padding: "1rem",
+            screens: {
+                "2xl": "1400px",
+            },
+        },
+        extend: {
+            colors: {
+                border: "hsl(var(--border))",
+                input: "hsl(var(--input))",
+                ring: "hsl(var(--ring))",
+                background: "hsl(var(--background))",
+                foreground: "hsl(var(--foreground))",
+                primary: {
+                    DEFAULT: "hsl(var(--primary))",
+                    foreground: "hsl(var(--primary-foreground))",
+                },
+                secondary: {
+                    DEFAULT: "hsl(var(--secondary))",
+                    foreground: "hsl(var(--secondary-foreground))",
+                },
+                destructive: {
+                    DEFAULT: "hsl(var(--destructive))",
+                    foreground: "hsl(var(--destructive-foreground))",
+                },
+                muted: {
+                    DEFAULT: "hsl(var(--muted))",
+                    foreground: "hsl(var(--muted-foreground))",
+                },
+                accent: {
+                    DEFAULT: "hsl(var(--accent))",
+                    foreground: "hsl(var(--accent-foreground))",
+                },
+                popover: {
+                    DEFAULT: "hsl(var(--popover))",
+                    foreground: "hsl(var(--popover-foreground))",
+                },
+                card: {
+                    DEFAULT: "hsl(var(--card))",
+                    foreground: "hsl(var(--card-foreground))",
+                },
+            },
+            borderRadius: {
+                lg: `var(--radius)`,
+                md: `calc(var(--radius) - 2px)`,
+                sm: "calc(var(--radius) - 4px)",
+            },
+            fontFamily: {
+                sans: ["Open Sans", ...defaultTheme.fontFamily.serif],
+                serif: ["Merriweather", ...defaultTheme.fontFamily.serif],
+            },
+            keyframes: {
+                "accordion-down": {
+                    from: { height: 0 },
+                    to: { height: "var(--radix-accordion-content-height)" },
+                },
+                "accordion-up": {
+                    from: { height: "var(--radix-accordion-content-height)" },
+                    to: { height: 0 },
+                },
+            },
+            animation: {
+                "accordion-down": "accordion-down 0.2s ease-out",
+                "accordion-up": "accordion-up 0.2s ease-out",
+            },
+        },
+    },
+
+    plugins: [require("tailwindcss-animate")],
+}
