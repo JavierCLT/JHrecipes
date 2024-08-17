@@ -1,4 +1,3 @@
-// resources/js/Components/Footer.tsx
 import React from 'react';
 import { Link } from '@inertiajs/react';
 
@@ -6,13 +5,19 @@ const Footer: React.FC = () => {
     return (
         <footer className="bg-gray-200 py-4 mt-8">
             <div className="container mx-auto px-4">
-                <div className="flex justify-between items-center">
-                    <p>&copy; {new Date().getFullYear()} JHrecipes </p>
-                    <div>
-                        <Link href="/legal" className="text-blue-600 hover:text-blue-800 mr-4">
+                <div className="flex justify-between items-center font-sans text-gray-700">
+                    <p className="text-sm">&copy; {new Date().getFullYear()} JHrecipes. All rights reserved.</p>
+                    <div className="space-x-4">
+                        <Link 
+                            href="/legal" 
+                            className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
+                        >
                             Legal
                         </Link>
-                        <Link href="/contact" className="text-blue-600 hover:text-blue-800">
+                        <Link 
+                            href="/contact" 
+                            className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
+                        >
                             Contact
                         </Link>
                     </div>
