@@ -10,13 +10,15 @@ const Footer: React.FC = () => {
                     <div className="space-x-4">
                         <Link 
                             href="/legal" 
-                            className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
+                            style={linkStyle}
+                            className="mr-4 hover:text-gray-900"
                         >
                             Legal
                         </Link>
                         <Link 
                             href="/contact" 
-                            className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
+                            style={linkStyle}
+                            className="hover:text-gray-900"
                         >
                             Contact
                         </Link>
