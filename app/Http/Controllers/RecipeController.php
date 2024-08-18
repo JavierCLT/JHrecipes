@@ -139,7 +139,7 @@ class RecipeController extends Controller
                 'is_perfected' => $request->is_perfected,
             ]);
 
-            $recipe->tags()->delete();
+            
             $tags = collect(explode(',', $request->tags))
                 ->map(fn ($tagWord) => request()->user()->tags()->firstOrCreate(['name' => trim($tagWord)]))
                 ->map(fn ($tag) => $tag->id)
