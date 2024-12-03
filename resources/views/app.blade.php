@@ -15,17 +15,9 @@
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
-
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYZ7BKYQ74"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-FYZ7BKYQ74');
-        </script>
-
+        <!-- Plausible tab (gtag.js) -->
+        <script defer data-domain="jhrecipes.com" src="https://plausible.io/js/script.js"></script>
+        
         <!-- Scripts -->
         @routes
         @viteReactRefresh
